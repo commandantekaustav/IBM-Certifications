@@ -63,13 +63,13 @@ home_owner_val = 1 if home_owner == "Yes" else 0
 st.divider()
 
 # Validation and prediction
-if st.button("🔍 Predict Default Risk", use_container_width=True):
+if st.button("Run our model", use_container_width=True):
     # Validate inputs
     if income < 1000:
         st.warning("⚠️ Annual income seems very low. Please verify.")
     
     if credit_score < 500:
-        st.warning("⚠️ Credit score is below 500—high risk indicator.")
+        st.warning("⚠️ Credit score < 500 || high risk indicator.")
     
     features = np.array([[age, income, credit_score, dependents, home_owner_val]])
     prediction = model.predict(features)
